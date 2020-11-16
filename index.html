@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dog Image App</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
+        type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dog API: Get Dog Images</h1>
+
+        <form id="js-breed-form">
+            <h2>Which Dog Breed Would You Like to See?</h2>
+            <label for="dog-breed">Enter a Dog Breed:</label>
+            <input id="dog-breed" type="text" placeholder="beagle">
+            <input type="submit" id="submit-breed" value="Bring the dog out!">
+        </form>
+
+        <section class="breed hidden">
+            <h3>Here's Your Dog!</h3>
+            <div class="breed-img"></div>
+        </section>
+
+        <form id="js-num-form">
+            <h2>How Many Dogs Would You Like to See?</h2>
+            <label for="dog-num">Enter a Number (1-50): </label>
+            <input id="dog-num" type="number" min="1" max="50" value="3" required>
+            <input type="submit" id="submit-num" value="Bring the dogs out!">
+        </form>
+
+        <section class="results hidden">
+            <h3>Here They Are!</h3>
+            <div class="results-imgs"></div>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
+
+<!-- 
+3) 
+- loads single image for specific breed based on user input
+- happy case when the breed is found, and unhappy case when it is not
+- API return 404 error if not found -->
