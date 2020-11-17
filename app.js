@@ -4,6 +4,8 @@
 function handleBreedSubmit() {
     $('#js-breed-form').submit(event => {
         event.preventDefault();
+        //replace the existing image(s) with the new one(s)
+        $('.breed-img').empty();
         const breedInput = $('#dog-breed').val();
         console.log(breedInput);
         getBreedImage(breedInput);
@@ -21,17 +23,17 @@ function getBreedImage(breedInput) {
 
 function displayDog(responseJson) {
     console.log(responseJson);
-    let breed = responseJSON.message;
+    let breed = responseJson.message;
+    console.log(breed);
     if (responseJson.status !== "success") {
         alert('Unable to find that dog breed. Please try searching for another breed.');
     } else if (responseJson.status === "success") {
-        $('.breed-img').replaceWith(
-            `<img src="${breed}" class="dog-breed">`
+        $('.breed-img').append(
+            `<img src="${breed}" class="dog-breed" alt="picture of dog">`
         );
         $('.breed').removeClass('hidden');
     }
 }
-
 
 
 /********** # OF DOG IMAGES **********/
@@ -62,7 +64,7 @@ function displayResults(responseJson) {
 function getImages(imgArray) {
     let value = '';
     for (let i = 0; i < imgArray.length; i++) {
-        value += `<img src="${imgArray[i]}" class="results-img">`;
+        value += `<img src="${imgArray[i]}" class="results-img" alt="picture of dogs">`;
     }
     return value;
 }
