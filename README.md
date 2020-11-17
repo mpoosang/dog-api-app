@@ -1,4 +1,5 @@
 Thinkful: Dog API App
+
 Live Website: https://mpoosang.github.io/dog-api-app/
 
 Based on documentation from https://dog.ceo/dog-api/
